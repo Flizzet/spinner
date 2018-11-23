@@ -13,4 +13,5 @@ const
 const ImageURLs = {
     Spinner: "assets/imgs/spinner.png",
     Background: "assets/imgs/background.png",
+    InstallButton: "assets/imgs/install-button.png",
 }

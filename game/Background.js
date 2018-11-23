@@ -8,8 +8,6 @@ function Background() {
     Instance = new Background();
     Instance.constructor = Background;
 
-    console.log("Background setup");
-
     // Functionality
     Instance.Sprite = new Sprite(resources[ImageURLs.Background].texture);
     Instance.Sprite.anchor.set(0.5, 0.5);

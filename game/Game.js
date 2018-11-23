@@ -9,10 +9,11 @@ const app = new PIXI.Application({
 });
 PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
 
+var tink = new Tink(PIXI, app.renderer.view);
 var GameScene = new Container();
 var backgroundSprite;
 var gameStarted = false;
-
+var delta = 0.01;
 
 // Creates canvas element, pushes to DOM
 document.body.appendChild(app.view);
@@ -26,11 +27,13 @@ window.onresize = resize;
 function start() {
     console.log("Game started");
 
-    // Create spinner
+	// Create Tink pointer
+	pointer = tink.makePointer();
 
     // Add all components to scene
     GameScene.addChild(Background().Sprite);
     GameScene.addChild(Spinner().Sprite);
+    GameScene.addChild(UILayer().SpinBtnSprite);
     
     // Add scene to stage
     app.stage.addChild(GameScene);
@@ -40,6 +43,22 @@ function start() {
 
     // Resize all components
     resize();
+    // Intitial gameloop
+    update();
+}
+
+function update() {
+	delta = app.ticker.deltaTime;
+
+	// Update tink
+	tink.update();
+    
+    // Update components
+    UILayer().SpinBtnSprite.update();
+    Spinner().update();
+
+    // Call next animation frame
+    requestAnimationFrame(update);
 }
 
 // Resize method
@@ -55,5 +74,6 @@ function resize() {
     if (gameStarted) {
         Background().resize();
         Spinner().resize();
+        UILayer().resize();
     }
 }

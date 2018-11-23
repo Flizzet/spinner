@@ -8,8 +8,6 @@ function Spinner() {
     Instance = new Spinner();
     Instance.constructor = Background;
 
-    console.log("Spinner setup");
-
     // Functionality
     Instance.Sprite = new Sprite(resources[ImageURLs.Spinner].texture);
     Instance.Sprite.anchor.set(0.5, 0.5);
@@ -18,6 +16,9 @@ function Spinner() {
         resizeSpriteByWidth(Instance.Sprite, app.renderer.width * 0.8);
         Instance.Sprite.x = app.renderer.width / 2;
         Instance.Sprite.y = app.renderer.height / 2;
+    }
+
+    Instance.update = function() {
     }
 
     return Instance;
