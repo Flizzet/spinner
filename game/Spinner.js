@@ -19,6 +19,11 @@ function Spinner() {
     }
 
     Instance.update = function() {
+
+    }
+
+    Instance.beginSpin = function() {
+        console.log("Spin started");
     }
 
     return Instance;

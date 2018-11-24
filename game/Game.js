@@ -54,7 +54,7 @@ function update() {
 	tink.update();
     
     // Update components
-    UILayer().SpinBtnSprite.update();
+    UILayer().update();
     Spinner().update();
 
     // Call next animation frame
